@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JQUERY-TEST</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" />
   </head>
   <body>
     <main>
@@ -22,13 +23,15 @@
       </fieldset>
       <button class="showRealGender" type="submit">Show Real Gender</button>
       <br />
-      <div class="realGender"></div>
+      <div class="realGender" title="Real Gender Modal">Male</div>
     </main>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script>
       $(document).ready(function () {
         const fbProfile = $(`<li>Facebook : <a href="https://facebook.com/Aszaychik">Profile</a></li>`);
-        const realGender = $(`<p>Male</p>`);
+        const realGender = `Male`;
+        $(".realGender").css("display", "none");
         const bgChangeRadio = () => {
           $("#bgBlack").on("click", function () {
             $("html").css("background-color", "black");
@@ -44,15 +47,18 @@
           });
         };
 
+        $(".showRealGender").click(function () {
+          $(function modal() {
+            $(".realGender").dialog();
+          });
+        });
+
         if ($(".bgChangeRadio").change()) {
           bgChangeRadio();
         }
         $("main li span:first").html("<b>As Zaychik</b>");
         $(".gender").text("Non-Binary");
         $("main li:last").append(fbProfile);
-        $(".showRealGender").click(function () {
-          $(".realGender").html(realGender);
-        });
       });
     </script>
   </body>
