@@ -24,7 +24,7 @@
         const fbProfile = $(`<li>Facebook : <a href="https://facebook.com/Aszaychik">Profile</a></li>`);
         const realGender = $(`<p>Male</p>`);
 
-        $("main li span:first").text("As Zaychik");
+        $("main li span:first").html("<b>As Zaychik</b>");
         $(".gender").text("Non-Binary");
         $("main li:last").append(fbProfile);
         $("button").click(true).insertAfter("div").append(realGender);
