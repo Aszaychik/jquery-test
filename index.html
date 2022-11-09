@@ -14,12 +14,20 @@
         <li>Gender : <span class="gender">Male</span></li>
         <li>Github : <a href="https://github.com/Aszaychik">Profile</a></li>
       </ul>
+      <button type="submit">Show Real Gender</button>
+      <br />
+      <div></div>
     </main>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script>
       $(document).ready(function () {
+        const fbProfile = $(`<li>Facebook : <a href="https://facebook.com/Aszaychik">Profile</a></li>`);
+        const realGender = $(`<p>Male</p>`);
+
         $("main li span:first").text("As Zaychik");
         $(".gender").text("Non-Binary");
+        $("main li:last").append(fbProfile);
+        $("button").click(true).insertAfter("div").append(realGender);
       });
     </script>
   </body>
