@@ -16,7 +16,7 @@
       </ul>
       <button type="submit">Show Real Gender</button>
       <br />
-      <div></div>
+      <div class="realGender"></div>
     </main>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script>
@@ -27,7 +27,9 @@
         $("main li span:first").html("<b>As Zaychik</b>");
         $(".gender").text("Non-Binary");
         $("main li:last").append(fbProfile);
-        $("button").click(true).insertAfter("div").append(realGender);
+        $("button").click(function () {
+          $(".realGender").html(realGender);
+        });
       });
     </script>
   </body>
