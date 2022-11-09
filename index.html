@@ -9,12 +9,15 @@
   <body>
     <main>
       <h1>Aszaychik</h1>
-      <ul>
-        <li>Name : <span>aszaychik</span></li>
-        <li>Gender : <span class="gender">Male</span></li>
-        <li>Github : <a href="https://github.com/Aszaychik">Profile</a></li>
-      </ul>
-      <button type="submit">Show Real Gender</button>
+      <fieldset>
+        <ul>
+          <li>Name : <span>aszaychik</span></li>
+          <li>Gender : <span class="gender">Male</span></li>
+          <li>Github : <a href="https://github.com/Aszaychik">Profile</a></li>
+        </ul>
+      </fieldset>
+      <fieldset><input type="radio" name="bgChange" id="bgBlack" value="Black" /> Black <input type="radio" name="bgChange" id="bgRed" value="Red" /> Red <input type="radio" name="bgChange" id="bgWhite" value="White" /> White</fieldset>
+      <button class="showRealGender" type="submit">Show Real Gender</button>
       <br />
       <div class="realGender"></div>
     </main>
@@ -23,11 +26,22 @@
       $(document).ready(function () {
         const fbProfile = $(`<li>Facebook : <a href="https://facebook.com/Aszaychik">Profile</a></li>`);
         const realGender = $(`<p>Male</p>`);
-
+        $("#bgBlack").on("click", function () {
+          $("html").css("background-color", "black");
+          $("html").css("color", "white");
+        });
+        $("#bgRed").on("click", function () {
+          $("html").css("background-color", "Red");
+          $("html").css("color", "Black");
+        });
+        $("#bgWhite").on("click", function () {
+          $("html").css("background-color", "White");
+          $("html").css("color", "Black");
+        });
         $("main li span:first").html("<b>As Zaychik</b>");
         $(".gender").text("Non-Binary");
         $("main li:last").append(fbProfile);
-        $("button").click(function () {
+        $(".showRealGender").click(function () {
           $(".realGender").html(realGender);
         });
       });
